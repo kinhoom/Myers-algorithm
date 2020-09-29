@@ -1,0 +1,79 @@
+d =0
+k == 0      
+
+down = true                d = 1                                  d= 1                      d = 2                                       d=2
+
+kprev = 1                     k == -1                             k == 1                    k = -2                                    k = 0
+
+xstart = 0                     down = true                     down  = false         down = true                            down = true;
+
+ystart = -1                   kprev = 0                          kprev = 0                kprev = -1                               kprev = 1
+
+xmid = 0                    xstart = v[0] = 0                 xstart = 0                 xstart = v[-1] = 0                     xstart = v[1] = 1
+ 
+ymid = 0                    ystart = 0                           ystart = 0                 ystart = 1                              ystart = 1 - 1 = 0
+
+xend = 0                    xmid = 0                             xmid = 1               xmid = 0                                    xmid = 1
+
+yend = 0                    ymid = 1                             ymid = 0                ymid = 2                                     ymid = 1
+
+v[0]  = 0                     xend = 0                              xend = 1                xend = 0                                   xend = 1
+ 
+tmp[0] = 0                  yend = 1                             yend = 0                yend = 2                                   yend = 1
+
+vs[0] = {'0':0}                 v[-1] = 0                           v[1] = 1                                                                    xend = 2
+		    tmp[-1]  = 0                      tmp[1] = 1                                                                  yend =2 
+		    vs[1] = {-1:0}                      vs[1] = {1:1}                v[-2] = 0
+                                                                                                               tmp[-2]  =0                               v[0] = 2
+                                                                                                                vs[2] = {-2:0}                              tmp[0] = 2
+
+                                                                                                                                                                vs[2] = {0:2,-2:0}
+                                                                                                                                                                solution(vs,2,2,2)
+
+										
+
+
+										let snakes = []
+										p = {x:2,y:2}
+										for(; d > 0; d--)
+										  v = {0:2,-2:0}
+										  vprev = 	vs[1]   = {1:1}
+									                  k = 2-2 = 0
+										  xend = v[k] = v[0] = 2
+										  yend = 2
+										  down = true
+										  kprev = 1
+										  xstart = 1
+										  ystart = 0
+										  xmid = 1
+										  ymid = 1
+										  snakes = [[1,1,2]]
+										  p.x = 1
+									                   p.y = 0
+
+
+							
+										 
+										   v = {1:1}
+										   vprev = {0:0}
+										   k = 1
+										   xend = 1
+										   yend = 0
+										   down =false
+										   kprev = 0
+										   xstart = vprev[0] = 0
+										    ystart = 0
+										   xmid = 1
+										   ymid = 0
+									                   snake = [[0,1,1],[1,1,2]]
+										   p.x = 0
+									                   p.y = 0
+
+									                
+
+
+
+时间复杂度：首先遍历一遍 n + m , 在每个遍历中，根据m+n的值确定d的取值范围。遍历d, 在solution中再次遍历d，所以遍历d的时间复杂度为d ^ 2,最外层d<=n+m确定每次d循环的取值范围。时间复杂度为O(m+n+d^2),最坏情况为为O((m+n)d^2) ,空间复杂度O(d^2)
+exp:
+     AB
+     CB
